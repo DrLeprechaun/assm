@@ -1,0 +1,19 @@
+.btn-violet {
+	color: #fff;
+	background-color: #906bae;
+	border-color: #694884;
+}
+	.btn-violet:hover {
+	color: #fff;
+	background-color: #765194;
+	border-color: #5c3f73;
+}
+.btn-violet:focus, .btn-violet.focus {
+	background-color: #765194;
+	box-shadow: 0 0 0 0.2rem rgba(144, 107, 174, 0.5);
+}
+.btn-violet.disabled, .btn-violet:disabled {
+	color: #fff;
+	background-color: #906bae;
+	border-color: #4f3663;
+}

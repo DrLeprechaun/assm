@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
+import Home from '@/components/Home'
+import Builder from '@/components/Builder'
+import About from '@/components/About'
+import Login from '@/components/Login'
 import Service from '@/components/Service'
 import Bootstrap from '@/components/Bootstrap'
 import User from '@/components/User'
@@ -11,8 +15,28 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About
+    },
+    {
+        path: '/builder',
+        name: 'Builder',
+        component: Builder
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: Login
+    },
+    {
+          path: '/hello',
+          name: 'Hello',
+          component: Hello
     },
     {
       path: '/callservice',
