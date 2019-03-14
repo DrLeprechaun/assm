@@ -25,17 +25,37 @@
 </template>
 
 <script>
+import {AXIOS} from './http-common'
+
 export default {
     name: 'builder',
     data() {
           return {
-            fields: ['customer', 'open'],
+            fields: ['customer', 'date', 'open'],
             items: [
-              { customer: 'GMF'},
-              { customer: 'GMF'}
-            ]
+              /*{ customer: 'GMF', date: ''},
+              { customer: 'GMF', date: ''}*/
+            ],
+          retrievedAssm: {},
           }
+        },
+    mounted() {
+        this.retrieveAssm();
+    },
+    methods: {
+        retrieveAssm () {
+                AXIOS.get(`/getassm`)
+                  .then(response => {
+                    // JSON responses are automatically parsed.
+                    this.retrievedAssm = response.data
+                    console.log(response.data.customer)
+                   this.items.push(response.data)
+                  })
+                  .catch(e => {
+                    this.errors.push(e)
+                  })
         }
+    }
   }
 
 </script>
