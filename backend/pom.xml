@@ -20,6 +20,7 @@
 		<!-- backend dependencies -->
 		<rest-assured.version>3.3.0</rest-assured.version>
 		<postgresql.version>42.2.5</postgresql.version>
+		<start-class>com.xentaurs.assm.AssmApp</start-class>
 	</properties>
 
 	<dependencies>
