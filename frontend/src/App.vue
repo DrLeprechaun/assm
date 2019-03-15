@@ -14,10 +14,10 @@
     <b-navbar>
       <b-navbar-brand id="nav-brand" href="#">ASSM</b-navbar-brand>
       <img height="50px" src="./assets/xentaurs-poweredby-logo-v2.png" alt="Powered by Xentaurs" />
-      <router-link to="/" class="nav-link">Home</router-link>
-      <router-link to="/builder" class="nav-link">Builder</router-link>
-      <router-link to="/about" class="nav-link">About</router-link>
-      <router-link to="/login" class="nav-link nav-right">Login</router-link>
+      <router-link to="/" class="nav-link nav-link-xentaurs">Home</router-link>
+      <router-link to="/builder" class="nav-link nav-link-xentaurs">Builder</router-link>
+      <router-link to="/about" class="nav-link nav-link-xentaurs">About</router-link>
+      <router-link to="/login" class="nav-link nav-link-xentaurs nav-right">Login</router-link>
     </b-navbar>
     <router-view :hellomsg="msg"></router-view>
   </div>
@@ -68,13 +68,24 @@ nav {
     text-shadow: 1px 1px 2px black, 0 0 1em #b59cc9;
 }
 
-.nav-link {
+/*.nav-link {
     color: #e6deed;
     text-decoration: none;
 }
 
 .nav-link:hover,
 .nav-link:focus {
+      color: #ffffff;
+      text-decoration: none;
+}*/
+
+.nav-link-xentaurs {
+    color: #e6deed;
+    text-decoration: none;
+}
+
+.nav-link-xentaurs:hover,
+.nav-link-xentaurs:focus {
       color: #ffffff;
       text-decoration: none;
 }
