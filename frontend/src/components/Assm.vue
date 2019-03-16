@@ -56,7 +56,6 @@
         <b-form-group label="Architechture details:">
               <b-form-checkbox
                 v-for="option in arch_options"
-                v-model="selected"
                 :key="option.value"
                 :value="option.value"
                 name="flavour3a"
@@ -72,7 +71,7 @@
                       <b-tabs pills card>
                          <b-tab title="Databases">
                               <b-card-text>
-                                <b-list-group>
+                                <!--<b-list-group>
                                   <b-list-group-item class="d-flex justify-content-between align-items-center">
                                     MS SQL Server
                                     <b-badge variant="primary" pill>3</b-badge>
@@ -84,10 +83,29 @@
                                   </b-list-group-item>
 
                                   <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                    MariaDB/MySQL
-                                    <b-badge variant="primary" pill>1</b-badge>
+                                    <p>MariaDB/MySQL</p>
+                                    <b-form-input type="number" />
                                   </b-list-group-item>
-                                </b-list-group>
+                                </b-list-group>-->
+
+
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Quantity</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="u_db in used_dbs_list">
+                                        <td>{{u_db.name}}</td>
+                                        <td><input class="form-control" type="number" min="1" v-model="u_db.quantity"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <hr/>
+                                <b-button v-on:click="mydeb" variant="primary">Add</b-button>
+
                               </b-card-text>
                                         </b-tab>
                                         <b-tab title="Infrastructure">
@@ -126,7 +144,18 @@ export default {
                       { text: 'Two-tier architecture', value: 'Two-tier architecture' },
                       { text: 'Using a separate DB', value: 'Using a separate DB' },
                       { text: 'Using DB with other environments', value: 'Using DB with other environments' }
-                    ]
+                    ],
+            used_dbs_list: [
+                { name: "MySQL/MariaDB", quantity: 7},
+                { name: "MS SQL Server", quantity: 2},
+                { name: "Oracle Database", quantity: 3}
+            ],
+            used_dbs_fields: ['name', 'quantity']
+        }
+    },
+    methods: {
+        mydeb: function () {
+            console.log(this.$data.used_dbs_list[0].quantity);
         }
     }
   }
