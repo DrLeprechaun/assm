@@ -13,9 +13,9 @@
   <div id="app">
     <b-navbar>
       <b-navbar-brand id="nav-brand" href="#">ASSM</b-navbar-brand>
-      <img height="50px" src="./assets/img/xentaurs-poweredby-logo-v2.png" alt="Powered by Xentaurs" />
-      <router-link to="/" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="home" /> Home</router-link>
-      <router-link to="/builder" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="wrench" /> Builder</router-link>
+      <router-link to="/" class="nav-link nav-link-xentaurs"><img height="50px" src="./assets/img/xentaurs-poweredby-logo-v2.png" alt="Powered by Xentaurs" /></router-link>
+      <!--<router-link to="/" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="home" /> Home</router-link>-->
+      <router-link to="/projects" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="wrench" /> Projects</router-link>
       <router-link to="/about" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="info" /> About</router-link>
       <router-link to="/login" class="nav-link nav-link-xentaurs nav-right"><font-awesome-icon icon="door-open" /> Login</router-link>
     </b-navbar>
