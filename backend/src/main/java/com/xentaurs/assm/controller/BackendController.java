@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController()
 @RequestMapping("/api")
 public class BackendController {
@@ -44,10 +47,20 @@ public class BackendController {
     }
 
     //@CrossOrigin(origins = "http://localhost:8080")
-    /*@CrossOrigin(origins = "*")*/
+    @CrossOrigin(origins = "*")
     @GetMapping(path="/getassm")
-    public @ResponseBody AssmProject getAssmProject() {
-        return new AssmProject("GMF");
+    public @ResponseBody List<AssmProject> getAssmProject() {
+        /*return new AssmProject("GMF");*/
+        List<AssmProject> assmList = new ArrayList<AssmProject>();
+        assmList.add(new AssmProject("GMF"));
+        assmList.add(new AssmProject("Chico's"));
+        assmList.add(new AssmProject("Availity"));
+        assmList.add(new AssmProject("Cisco"));
+        assmList.add(new AssmProject("Honor Health"));
+        assmList.add(new AssmProject("Loftware Inc"));
+        assmList.add(new AssmProject("Mercantil Bank"));
+        assmList.add(new AssmProject("PSCU"));
+        return assmList;
     }
 
 }

@@ -53,7 +53,8 @@ export default {
                     // JSON responses are automatically parsed.
                     this.retrievedAssm = response.data
                     console.log(response.data.customer)
-                   this.items.push(response.data)
+                   /*this.items.push(response.data)*/
+                   this.$data.items = response.data;
                   })
                   .catch(e => {
                     this.errors.push(e)
