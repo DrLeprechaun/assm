@@ -13,11 +13,11 @@
   <div id="app">
     <b-navbar>
       <b-navbar-brand id="nav-brand" href="#">ASSM</b-navbar-brand>
-      <img height="50px" src="./assets/xentaurs-poweredby-logo-v2.png" alt="Powered by Xentaurs" />
-      <router-link to="/" class="nav-link nav-link-xentaurs">Home</router-link>
-      <router-link to="/builder" class="nav-link nav-link-xentaurs">Builder</router-link>
-      <router-link to="/about" class="nav-link nav-link-xentaurs">About</router-link>
-      <router-link to="/login" class="nav-link nav-link-xentaurs nav-right">Login</router-link>
+      <img height="50px" src="./assets/img/xentaurs-poweredby-logo-v2.png" alt="Powered by Xentaurs" />
+      <router-link to="/" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="home" /> Home</router-link>
+      <router-link to="/builder" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="wrench" /> Builder</router-link>
+      <router-link to="/about" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="info" /> About</router-link>
+      <router-link to="/login" class="nav-link nav-link-xentaurs nav-right"><font-awesome-icon icon="door-open" /> Login</router-link>
     </b-navbar>
     <router-view :hellomsg="msg"></router-view>
   </div>
@@ -57,61 +57,5 @@ export default {
     }
   }
 }*/
-
-nav {
-    background-color: #906bae;
-}
-
-#nav-brand {
-    margin-left: 10%;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px black, 0 0 1em #b59cc9;
-}
-
-/*.nav-link {
-    color: #e6deed;
-    text-decoration: none;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-      color: #ffffff;
-      text-decoration: none;
-}*/
-
-.nav-link-xentaurs {
-    color: #e6deed;
-    text-decoration: none;
-}
-
-.nav-link-xentaurs:hover,
-.nav-link-xentaurs:focus {
-      color: #ffffff;
-      text-decoration: none;
-}
-
-.nav-right {
-    margin-left: 40%;
-}
-
-.btn-violet {
-	color: #fff;
-	background-color: #906bae;
-	border-color: #694884;
-}
-	.btn-violet:hover {
-	color: #fff;
-	background-color: #765194;
-	border-color: #5c3f73;
-}
-.btn-violet:focus, .btn-violet.focus {
-	background-color: #765194;
-	box-shadow: 0 0 0 0.2rem rgba(144, 107, 174, 0.5);
-}
-.btn-violet.disabled, .btn-violet:disabled {
-	color: #fff;
-	background-color: #906bae;
-	border-color: #4f3663;
-}
 
 </style>

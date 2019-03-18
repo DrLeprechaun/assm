@@ -5,8 +5,8 @@
         <h3>ASSM Builder</h3>
         <hr>
         <p> Select existing project or <router-link to="/assm">
-                                                   <b-button variant="primary" class="btn-violet">Create New Project</b-button>
-                                               </router-link>
+             <b-button variant="primary" class="btn-violet">Create New Project</b-button>
+            </router-link>
         </p>
 
         <template>
@@ -14,7 +14,9 @@
             <b-table striped hover :items="items" :fields="fields">
 
             <template slot="open" slot-scope="row">
-                    <b-button variant="primary" class="btn-violet">Open</b-button>
+                    <router-link to="/assm">
+                         <b-button variant="primary" class="btn-violet">Open</b-button>
+                    </router-link>
                   </template>
 
             </b-table>
