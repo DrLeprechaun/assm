@@ -10,7 +10,12 @@
             <div class="general-information-container">
                 <b-form-input type="text" placeholder="Name" />
                 <div class="mt-2"></div>
-                <b-form-input type="text" placeholder="Vendor" />
+                <!--<b-form-input type="text" placeholder="Vendor" />-->
+                <select class="custom-select" aria-label="Select vendor" value="">
+                  <option>Azure</option>
+                  <option>AWS</option>
+                  <option>GCP</option>
+                </select>
                 <div class="mt-2"></div>
                 <b-form-input type="text" placeholder="Version" />
                 <div class="mt-2"></div>

@@ -74,8 +74,8 @@
                                                      <option v-for="s in sectionList">{{ s }}</option>
                                                 </select>
                                              </td>
-                                             <td><input class="form-control" type="number" min="1" max="10" v-model="e.risk"></td>
-                                             <td><input class="form-control" type="number" min="1" max="10" v-model="e.complexity"></td>
+                                             <td><input class="form-control" type="number" min="0" max="10" v-model="e.risk"></td>
+                                             <td><input class="form-control" type="number" min="0" max="10" v-model="e.complexity"></td>
                                              <td>
                                                 <select class="custom-select" aria-label="Select solution" v-model="e.solution">
                                                       <option v-for="s in azureServices">{{ s.name }}</option>
@@ -93,10 +93,10 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input class="form-control" type="number" min="1" max="10" v-model="azurePositive.risk">
+                                                <input class="form-control" type="number" min="0" max="10" v-model="azurePositive.risk">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="number" min="1" max="10" v-model="azurePositive.complexity">
+                                                <input class="form-control" type="number" min="0" max="10" v-model="azurePositive.complexity">
                                             </td>
                                             <td>
                                                 <select class="custom-select" aria-label="Select solution" v-model="azurePositive.solution">
@@ -135,8 +135,8 @@
                                                      <option v-for="s in sectionList">{{ s }}</option>
                                                 </select>
                                              </td>
-                                             <td><input class="form-control" type="number" min="1" max="10" v-model="e.risk"></td>
-                                             <td><input class="form-control" type="number" min="1" max="10" v-model="e.complexity"></td>
+                                             <td><input class="form-control" type="number" min="0" max="10" v-model="e.risk"></td>
+                                             <td><input class="form-control" type="number" min="0" max="10" v-model="e.complexity"></td>
                                              <td>
                                                 <select class="custom-select" aria-label="Select solution" v-model="e.solution">
                                                       <option v-for="s in azureServices">{{ s.name }}</option>
@@ -154,10 +154,10 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input class="form-control" type="number" min="1" max="10" v-model="azureNegative.risk">
+                                                <input class="form-control" type="number" min="0" max="10" v-model="azureNegative.risk">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="number" min="1" max="10" v-model="azureNegative.complexity">
+                                                <input class="form-control" type="number" min="0" max="10" v-model="azureNegative.complexity">
                                             </td>
                                             <td>
                                                 <select class="custom-select" aria-label="Select solution" v-model="azureNegative.solution">
@@ -244,8 +244,8 @@
                                                      <option v-for="s in sectionList">{{ s }}</option>
                                                 </select>
                                              </td>
-                                             <td><input class="form-control" type="number" min="1" max="10" v-model="e.risk"></td>
-                                             <td><input class="form-control" type="number" min="1" max="10" v-model="e.complexity"></td>
+                                             <td><input class="form-control" type="number" min="0" max="10" v-model="e.risk"></td>
+                                             <td><input class="form-control" type="number" min="0" max="10" v-model="e.complexity"></td>
                                              <td>
                                                 <select class="custom-select" aria-label="Select solution" v-model="e.solution">
                                                       <option v-for="s in awsServices">{{ s.name }}</option>
@@ -263,10 +263,10 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input class="form-control" type="number" min="1" max="10" v-model="awsPositive.risk">
+                                                <input class="form-control" type="number" min="0" max="10" v-model="awsPositive.risk">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="number" min="1" max="10" v-model="awsPositive.complexity">
+                                                <input class="form-control" type="number" min="0" max="10" v-model="awsPositive.complexity">
                                             </td>
                                             <td>
                                                 <select class="custom-select" aria-label="Select solution" v-model="awsPositive.solution">
@@ -305,8 +305,8 @@
                                                      <option v-for="s in sectionList">{{ s }}</option>
                                                 </select>
                                              </td>
-                                             <td><input class="form-control" type="number" min="1" max="10" v-model="e.risk"></td>
-                                             <td><input class="form-control" type="number" min="1" max="10" v-model="e.complexity"></td>
+                                             <td><input class="form-control" type="number" min="0" max="10" v-model="e.risk"></td>
+                                             <td><input class="form-control" type="number" min="0" max="10" v-model="e.complexity"></td>
                                              <td>
                                                 <select class="custom-select" aria-label="Select solution" v-model="e.solution">
                                                       <option v-for="s in awsServices">{{ s.name }}</option>
@@ -324,10 +324,10 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input class="form-control" type="number" min="1" max="10" v-model="awsNegative.risk">
+                                                <input class="form-control" type="number" min="0" max="10" v-model="awsNegative.risk">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="number" min="1" max="10" v-model="awsNegative.complexity">
+                                                <input class="form-control" type="number" min="0" max="10" v-model="awsNegative.complexity">
                                             </td>
                                             <td>
                                                 <select class="custom-select" aria-label="Select solution" v-model="awsNegative.solution">
@@ -414,8 +414,8 @@
                                                       <option v-for="s in sectionList">{{ s }}</option>
                                                  </select>
                                               </td>
-                                              <td><input class="form-control" type="number" min="1" max="10" v-model="e.risk"></td>
-                                              <td><input class="form-control" type="number" min="1" max="10" v-model="e.complexity"></td>
+                                              <td><input class="form-control" type="number" min="0" max="10" v-model="e.risk"></td>
+                                              <td><input class="form-control" type="number" min="0" max="10" v-model="e.complexity"></td>
                                               <td>
                                                  <select class="custom-select" aria-label="Select solution" v-model="e.solution">
                                                        <option v-for="s in gcpServices">{{ s.name }}</option>
@@ -433,10 +433,10 @@
                                                  </select>
                                              </td>
                                              <td>
-                                                 <input class="form-control" type="number" min="1" max="10" v-model="gcpPositive.risk">
+                                                 <input class="form-control" type="number" min="0" max="10" v-model="gcpPositive.risk">
                                              </td>
                                              <td>
-                                                 <input class="form-control" type="number" min="1" max="10" v-model="gcpPositive.complexity">
+                                                 <input class="form-control" type="number" min="0" max="10" v-model="gcpPositive.complexity">
                                              </td>
                                              <td>
                                                  <select class="custom-select" aria-label="Select solution" v-model="gcpPositive.solution">
@@ -475,8 +475,8 @@
                                                       <option v-for="s in sectionList">{{ s }}</option>
                                                  </select>
                                               </td>
-                                              <td><input class="form-control" type="number" min="1" max="10" v-model="e.risk"></td>
-                                              <td><input class="form-control" type="number" min="1" max="10" v-model="e.complexity"></td>
+                                              <td><input class="form-control" type="number" min="0" max="10" v-model="e.risk"></td>
+                                              <td><input class="form-control" type="number" min="0" max="10" v-model="e.complexity"></td>
                                               <td>
                                                  <select class="custom-select" aria-label="Select solution" v-model="e.solution">
                                                        <option v-for="s in gcpServices">{{ s.name }}</option>
@@ -494,10 +494,10 @@
                                                  </select>
                                              </td>
                                              <td>
-                                                 <input class="form-control" type="number" min="1" max="10" v-model="gcpNegative.risk">
+                                                 <input class="form-control" type="number" min="0" max="10" v-model="gcpNegative.risk">
                                              </td>
                                              <td>
-                                                 <input class="form-control" type="number" min="1" max="10" v-model="gcpNegative.complexity">
+                                                 <input class="form-control" type="number" min="0" max="10" v-model="gcpNegative.complexity">
                                              </td>
                                              <td>
                                                  <select class="custom-select" aria-label="Select solution" v-model="gcpNegative.solution">
