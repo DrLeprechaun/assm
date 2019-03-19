@@ -2,7 +2,7 @@
 
 <div class="builder">
     <div class="builder-content">
-        <h3>ASSM Builder</h3>
+        <h3>ASSM Projects</h3>
         <hr>
         <p> Select existing project or <router-link to="/assm">
              <b-button variant="primary" class="btn-violet">Create New Project</b-button>

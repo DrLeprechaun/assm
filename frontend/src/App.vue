@@ -11,13 +11,15 @@
 
 
   <div id="app">
-    <b-navbar>
+    <b-navbar style="width: 100%">
       <b-navbar-brand id="nav-brand" href="#">ASSM</b-navbar-brand>
       <router-link to="/" class="nav-link nav-link-xentaurs"><img height="50px" src="./assets/img/xentaurs-poweredby-logo-v2.png" alt="Powered by Xentaurs" /></router-link>
       <!--<router-link to="/" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="home" /> Home</router-link>-->
       <router-link to="/projects" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="wrench" /> Projects</router-link>
+      <router-link to="/dictionary" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="book" /> Dictionary</router-link>
       <router-link to="/about" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="info" /> About</router-link>
-      <router-link to="/login" class="nav-link nav-link-xentaurs nav-right"><font-awesome-icon icon="door-open" /> Login</router-link>
+      <router-link to="/register" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="user-plus" /> Register</router-link>
+      <router-link to="/login" class="nav-link nav-link-xentaurs"><font-awesome-icon icon="door-open" /> Login</router-link>
     </b-navbar>
     <router-view :hellomsg="msg"></router-view>
   </div>

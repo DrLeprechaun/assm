@@ -4,6 +4,8 @@ import Hello from '@/components/Hello'
 import Home from '@/components/Home'
 import Projects from '@/components/Projects'
 import Assm from '@/components/Assm'
+import Dictionary from '@/components/Dictionary'
+import Register from '@/components/Register'
 import About from '@/components/About'
 import Login from '@/components/Login'
 import Service from '@/components/Service'
@@ -38,6 +40,16 @@ export default new Router({
         path: '/assm',
         name: 'Assm',
         component: Assm
+    },
+    {
+        path: '/dictionary',
+        name: 'Dictionary',
+        component: Dictionary
+    },
+    {
+        path: '/register',
+        name: 'Register',
+        component: Register
     },
     {
           path: '/hello',
