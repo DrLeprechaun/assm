@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Home from '@/components/Home'
 import Projects from '@/components/Projects'
-import Assm from '@/components/Assm'
+import Builder from '@/components/Builder'
 import Dictionary from '@/components/Dictionary'
 import Register from '@/components/Register'
 import About from '@/components/About'
@@ -37,9 +37,9 @@ export default new Router({
         component: Login
     },
     {
-        path: '/assm',
-        name: 'Assm',
-        component: Assm
+        path: '/builder',
+        name: 'Builder',
+        component: Builder
     },
     {
         path: '/dictionary',

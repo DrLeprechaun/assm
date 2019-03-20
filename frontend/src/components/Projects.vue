@@ -4,7 +4,7 @@
     <div class="builder-content">
         <h3>ASSM Projects</h3>
         <hr>
-        <p> Select existing project or <router-link to="/assm">
+        <p> Select existing project or <router-link to="/builder">
              <b-button variant="primary" class="btn-violet">Create New Project</b-button>
             </router-link>
         </p>
@@ -14,7 +14,7 @@
             <b-table striped hover :items="items" :fields="fields">
 
             <template slot="open" slot-scope="row">
-                    <router-link to="/assm">
+                    <router-link to="/builder">
                          <b-button variant="primary" class="btn-violet">Open</b-button>
                     </router-link>
                   </template>

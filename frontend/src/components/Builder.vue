@@ -4,25 +4,26 @@
 
 <div class="main-content">
   <b-card no-body>
-    <b-tabs pills card vertical>
-      <b-tab title="General Information" active>
+    <b-tabs pills card vertical v-model="tabIndex">
+      <b-tab active :title-link-class="linkClass(0)">
+        <template slot="title">
+           <span><font-awesome-icon icon="address-card" />  General Information</span>
+        </template>
         <b-card-text>
             <div class="general-information-container">
                 <b-form-input type="text" placeholder="Name" />
                 <div class="mt-2"></div>
-                <!--<b-form-input type="text" placeholder="Vendor" />-->
-                <select class="custom-select" aria-label="Select vendor" value="">
-                  <option>Azure</option>
-                  <option>AWS</option>
-                  <option>GCP</option>
-                </select>
+                <b-form-input type="text" placeholder="Vendor" />
                 <div class="mt-2"></div>
                 <b-form-input type="text" placeholder="Version" />
                 <div class="mt-2"></div>
             </div>
         </b-card-text>
       </b-tab>
-      <b-tab title="Architecture">
+      <b-tab :title-link-class="linkClass(1)">
+        <template slot="title">
+           <span><font-awesome-icon icon="drafting-compass" />  Architecture</span>
+        </template>
       <b-card-text>
         <b-form-group label="Architechture details:">
               <b-form-checkbox
@@ -36,11 +37,17 @@
             </b-form-group>
       </b-card-text>
       </b-tab>
-      <b-tab title="Used Services">
+      <b-tab :title-link-class="linkClass(2)">
+        <template slot="title">
+           <span><font-awesome-icon icon="tools" />  Used Services</span>
+         </template>
         <b-card-text>
             <b-card no-body>
-                      <b-tabs pills card>
-                         <b-tab title="Databases">
+                      <b-tabs pills card v-model="subTabIndex">
+                         <b-tab :title-link-class="subLinkClass(0)">
+                                <template slot="title">
+                                    <span><font-awesome-icon icon="database" />  Database</span>
+                                 </template>
                               <b-card-text>
 
                                 <table class="table table-striped">
@@ -55,9 +62,9 @@
                                         <tr v-for="u_db in used_dbs_list">
                                         <td>{{u_db.name}}</td>
                                         <td><input class="form-control" type="number" min="1" v-model="u_db.quantity"></td>
-                                        <td><b-button style="width: 110px;" v-on:click="removeUsedDb(u_db.name)" variant="primary"><font-awesome-icon icon="cut" /> Remove</b-button></td>
+                                        <td><b-button style="width: 110px;" v-on:click="removeUsedDb(u_db.name)" class="btn-violet"><font-awesome-icon icon="cut" /> Remove</b-button></td>
                                         </tr>
-                                        <tr style="background-color: #d6e6ff" v-if="dbs_list.length > 0">
+                                        <tr style="background-color: #e6d4f5" v-if="dbs_list.length > 0">
                                             <td>
                                                 <select id="dbSelector" class="custom-select" aria-label="Select database to add" v-model="db_to_add">
                                                      <option v-for="db in dbs_list">{{ db }}</option>
@@ -67,7 +74,7 @@
                                                 <input class="form-control" type="number" min="1" v-model="db_quantity">
                                             </td>
                                             <td>
-                                                <b-button v-on:click="addUsedDb" style="width: 110px;" variant="primary" class="add-component-button"><font-awesome-icon icon="plus" /> Add</b-button>
+                                                <b-button v-on:click="addUsedDb" style="width: 110px;" class="add-component-button btn-violet"><font-awesome-icon icon="plus" /> Add</b-button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -76,7 +83,10 @@
 
                               </b-card-text>
                                         </b-tab>
-                                        <b-tab title="Infrastructure">
+                                        <b-tab :title-link-class="subLinkClass(1)">
+                                            <template slot="title">
+                                                   <span><font-awesome-icon icon="cubes" />  Infrastructure</span>
+                                                </template>
                                             <b-card-text>
 
                                                 <table class="table table-striped">
@@ -91,9 +101,9 @@
                                                         <tr v-for="u_infr in used_infr_list">
                                                         <td>{{u_infr.name}}</td>
                                                         <td><input class="form-control" type="number" min="1" v-model="u_infr.quantity"></td>
-                                                        <td><b-button style="width: 110px;" v-on:click="removeUsedInfr(u_infr.name)" variant="primary"><font-awesome-icon icon="cut" /> Remove</b-button></td>
+                                                        <td><b-button style="width: 110px;" v-on:click="removeUsedInfr(u_infr.name)" class="btn-violet"><font-awesome-icon icon="cut" /> Remove</b-button></td>
                                                         </tr>
-                                                        <tr style="background-color: #d6e6ff" v-if="infr_list.length > 0">
+                                                        <tr style="background-color: #e6d4f5" v-if="infr_list.length > 0">
                                                             <td>
                                                                 <select id="infrSelector" class="custom-select" aria-label="Select infrastructure component to add" v-model="infr_to_add">
                                                                      <option v-for="infr in infr_list">{{ infr }}</option>
@@ -103,7 +113,7 @@
                                                                 <input class="form-control" type="number" min="1" v-model="infr_quantity">
                                                             </td>
                                                             <td>
-                                                                <b-button v-on:click="addUsedInfr" style="width: 110px;" variant="primary" class="add-component-button"><font-awesome-icon icon="plus" /> Add</b-button>
+                                                                <b-button v-on:click="addUsedInfr" style="width: 110px;" class="add-component-button btn-violet"><font-awesome-icon icon="plus" /> Add</b-button>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -113,7 +123,10 @@
                                         </b-tab>
 
 
-                                        <b-tab title="Features">
+                                        <b-tab :title-link-class="subLinkClass(2)">
+                                            <template slot="title">
+                                                   <span><font-awesome-icon icon="cogs" />  Features</span>
+                                                </template>
                                             <b-card-text>
 
                                                 <table class="table table-striped">
@@ -134,9 +147,9 @@
                                                                 <option>No</option>
                                                             </select>
                                                         </td>
-                                                        <td><b-button style="width: 110px;" v-on:click="removeUsedFeature(u_f.name)" variant="primary"><font-awesome-icon icon="cut" /> Remove</b-button></td>
+                                                        <td><b-button style="width: 110px;" v-on:click="removeUsedFeature(u_f.name)" class="btn-violet"><font-awesome-icon icon="cut" /> Remove</b-button></td>
                                                         </tr>
-                                                        <tr style="background-color: #d6e6ff" v-if="features_list.length > 0">
+                                                        <tr style="background-color: #e6d4f5" v-if="features_list.length > 0">
                                                             <td>
                                                                 <select id="featureSelector" class="custom-select" aria-label="Select feature to add" v-model="feature_to_add">
                                                                      <option v-for="f in features_list">{{ f }}</option>
@@ -150,7 +163,7 @@
                                                                 </select>
                                                             </td>
                                                             <td>
-                                                                <b-button v-on:click="addUsedFeature" style="width: 110px;" variant="primary" class="add-component-button"><font-awesome-icon icon="plus" /> Add</b-button>
+                                                                <b-button v-on:click="addUsedFeature" style="width: 110px;" class="add-component-button btn-violet"><font-awesome-icon icon="plus" /> Add</b-button>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -162,7 +175,10 @@
                               </b-card>
         </b-card-text>
       </b-tab>
-      <b-tab title="Apps">
+      <b-tab :title-link-class="linkClass(3)">
+        <template slot="title">
+                 <span><font-awesome-icon icon="chess-knight" />  Apps</span>
+              </template>
         <b-card-text>
                     <table class="table table-striped">
                                                     <thead>
@@ -176,9 +192,9 @@
                                                         <tr v-for="u_app in used_apps_list">
                                                         <td>{{u_app.name}}</td>
                                                         <td><input class="form-control" type="number" min="1" v-model="u_app.quantity"></td>
-                                                        <td><b-button style="width: 110px;" v-on:click="removeUsedApp(u_app.name)" variant="primary"><font-awesome-icon icon="cut" /> Remove</b-button></td>
+                                                        <td><b-button style="width: 110px;" v-on:click="removeUsedApp(u_app.name)" class="btn-violet"><font-awesome-icon icon="cut" /> Remove</b-button></td>
                                                         </tr>
-                                                        <tr style="background-color: #d6e6ff" v-if="apps_list.length > 0">
+                                                        <tr style="background-color: #e6d4f5" v-if="apps_list.length > 0">
                                                             <td>
                                                                 <select id="appSelector" class="custom-select" aria-label="Select application to add" v-model="app_to_add">
                                                                      <option v-for="app in apps_list">{{ app }}</option>
@@ -188,14 +204,17 @@
                                                                 <input class="form-control" type="number" min="1" v-model="apps_quantity">
                                                             </td>
                                                             <td>
-                                                                <b-button v-on:click="addUsedApp" style="width: 110px;" variant="primary" class="add-component-button"><font-awesome-icon icon="plus" /> Add</b-button>
+                                                                <b-button v-on:click="addUsedApp" style="width: 110px;" class="add-component-button btn-violet"><font-awesome-icon icon="plus" /> Add</b-button>
                                                             </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
         </b-card-text>
       </b-tab>
-      <b-tab title="Additional">
+      <b-tab :title-link-class="linkClass(4)">
+        <template slot="title">
+                 <span><font-awesome-icon icon="user-plus" />  Additional</span>
+              </template>
         <b-card-text>
                             <table class="table table-striped">
                                                     <thead>
@@ -209,9 +228,9 @@
                                                         <tr v-for="u_add in used_adds_list">
                                                         <td>{{u_add.name}}</td>
                                                         <td><input class="form-control" type="number" min="1" v-model="u_add.quantity"></td>
-                                                        <td><b-button style="width: 110px;" v-on:click="removeUsedAdd(u_add.name)" variant="primary"><font-awesome-icon icon="cut" /> Remove</b-button></td>
+                                                        <td><b-button style="width: 110px;" v-on:click="removeUsedAdd(u_add.name)" class="btn-violet"><font-awesome-icon icon="cut" /> Remove</b-button></td>
                                                         </tr>
-                                                        <tr style="background-color: #d6e6ff" v-if="adds_list.length > 0">
+                                                        <tr style="background-color: #e6d4f5" v-if="adds_list.length > 0">
                                                             <td>
                                                                 <select id="addSelector" class="custom-select" aria-label="Select additional requirement to add" v-model="add_to_add">
                                                                      <option v-for="add in adds_list">{{ add }}</option>
@@ -221,14 +240,17 @@
                                                                 <input class="form-control" type="number" min="1" v-model="adds_quantity">
                                                             </td>
                                                             <td>
-                                                                <b-button v-on:click="addUsedAdd" style="width: 110px;" variant="primary" class="add-component-button"><font-awesome-icon icon="plus" /> Add</b-button>
+                                                                <b-button v-on:click="addUsedAdd" style="width: 110px;" class="add-component-button btn-violet"><font-awesome-icon icon="plus" /> Add</b-button>
                                                             </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
         </b-card-text>
       </b-tab>
-      <b-tab title="Reference">
+      <b-tab :title-link-class="linkClass(5)">
+        <template slot="title">
+                 <span><font-awesome-icon icon="list-alt" />  Reference</span>
+              </template>
         <b-card-text>
             <table class="table table-stripped">
                             <thead>
@@ -252,9 +274,9 @@
                                     <td><input class="form-control" type="number" min="1" v-model="ref.ram"></td>
                                     <td><input class="form-control" type="number" min="1" v-model="ref.memory"></td>
                                     <td><input class="form-control" type="text" v-model="ref.services"></td>
-                                    <td><b-button style="width: 110px;" v-on:click="removeReference(ref.id)" variant="primary"><font-awesome-icon icon="cut" /> Remove</b-button></td>
+                                    <td><b-button style="width: 110px;" v-on:click="removeReference(ref.id)" class="btn-violet"><font-awesome-icon icon="cut" /> Remove</b-button></td>
                                 </tr>
-                                <tr style="background-color: #d6e6ff">
+                                <tr style="background-color: #e6d4f5">
                                     <td><input class="form-control" type="text" v-model="ref_to_add.name"></td>
                                     <td><input class="form-control" type="text" v-model="ref_to_add.address"></td>
                                     <td><input class="form-control" type="text" v-model="ref_to_add.os"></td>
@@ -262,13 +284,28 @@
                                     <td><input class="form-control" type="number" min="1" v-model="ref_to_add.ram"></td>
                                     <td><input class="form-control" type="number" min="1" v-model="ref_to_add.memory"></td>
                                     <td><input class="form-control" type="text" v-model="ref_to_add.services"></td>
-                                    <td><b-button v-on:click="addReference" style="width: 110px;" variant="primary" class="add-component-button"><font-awesome-icon icon="plus" /> Add</b-button></td>
+                                    <td><b-button v-on:click="addReference" style="width: 110px;" class="add-component-button btn-violet"><font-awesome-icon icon="plus" /> Add</b-button></td>
                                 </tr>
                             </tbody>
                         </table>
         </b-card-text>
       </b-tab>
+      <b-tab :title-link-class="linkClass(6)">
+              <template slot="title">
+                       <span><font-awesome-icon icon="save" />  Save</span>
+                    </template>
+              <b-card-text>
+                <div style="margin: auto; margin-top: 50px; width: 200px; text-align: center;">
+                    <b-button class="btn-violet btn-save" href="#" variant="primary"><font-awesome-icon icon="save" /> Save Project</b-button>
+                    <b-button class="btn-violet btn-save" href="#" variant="primary"><font-awesome-icon icon="file" /> Save and View ASSM</b-button>
+                </div>
+              </b-card-text>
+      </b-tab>
     </b-tabs>
+    <!--<hr style="margin-left: 2%; margin-right: 2%;">
+    <div>
+        <b-button class="btn-violet float-right" href="#" variant="primary">Save</b-button>
+    </div>-->
   </b-card>
   <!--<hr>
   <b-button class="btn-violet" href="#" variant="primary">Save</b-button>-->
@@ -283,9 +320,11 @@
 
 <script>
 export default {
-    name: 'assm',
+    name: 'builder',
     data() {
         return {
+            tabIndex: 0,
+            subTabIndex: 0,
             arch_options: [
                       { text: 'Three-tier architecture', value: 'Three-tier architecture' },
                       { text: 'Two-tier architecture', value: 'Two-tier architecture' },
@@ -366,6 +405,20 @@ export default {
         this.$data.features_list.sort();
     },
     methods: {
+        linkClass(idx) {
+            if (this.tabIndex === idx) {
+              return ['btn-tab', 'btn-tab-active']
+            } else {
+              return ['btn-tab']
+            }
+          },
+          subLinkClass(idx) {
+            if (this.subTabIndex === idx) {
+              return ['btn-tab', 'btn-tab-active']
+            } else {
+              return ['btn-tab']
+            }
+          },
         mydeb: function() {
             /*console.log(this.$data.used_dbs_list[0].quantity);
             console.log(this.$data.db_to_add);*/
@@ -526,5 +579,8 @@ export default {
 }
 .add-container {
     display: grid;
+}
+.btn-save {
+    margin-bottom: 20px;
 }
 </style>
