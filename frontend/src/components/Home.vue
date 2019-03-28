@@ -11,13 +11,15 @@
 
         <hr class="my-4" />
 
-        <p>
-          Login and build Application Segmentation Scoring Matrix
-        </p>
+        <div v-if="!isAuthenticated">
+            <p>
+                Login and build Application Segmentation Scoring Matrix
+            </p>
 
-        <router-link to="/login">
-            <b-button variant="primary" class="btn-violet">Login</b-button>
-        </router-link>
+            <router-link to="/login">
+                <b-button variant="primary" class="btn-violet">Login</b-button>
+            </router-link>
+        </div>
 
       </b-jumbotron>
 
@@ -26,8 +28,16 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex'
+
 export default {
-    name: 'home'
+    name: 'home',
+    data () {
+        return {}
+    },
+    computed: {
+        ...mapGetters(['getProfile', 'isAuthenticated', 'isProfileLoaded'])
+    }
   }
 
 </script>

@@ -27,14 +27,14 @@
               class="mb-2"
             >
               <div>
-                 <b-form-input type="text" placeholder="Username" />
+                 <b-form-input type="text" placeholder="Username" v-model="username" />
                  <div class="mt-2"></div>
 
-                 <b-form-input type="password" placeholder="Password" />
+                 <b-form-input type="password" placeholder="Password" v-model="password" />
                  <div class="mt-2"></div>
               </div>
 
-              <b-button class="btn-violet" href="#" variant="primary">Login</b-button>
+              <b-button class="btn-violet" v-on:click="login" variant="primary">Login</b-button>
 
               <hr class="my-4" />
 
@@ -47,9 +47,26 @@
 </template>
 
 <script>
+/*import axios from 'axios'*/
+import {AUTH_REQUEST} from '../store/actions/auth'
+
 export default {
-    name: 'login'
-  }
+    name: 'login',
+    data () {
+          return {
+            username: '',
+            password: '',
+          }
+    },
+    methods: {
+        login: function () {
+           const { username, password } = this
+           this.$store.dispatch(AUTH_REQUEST, { username, password }).then(() => {
+             this.$router.push('/')
+           })
+        }
+    }
+}
 
 </script>
 

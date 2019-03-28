@@ -2,15 +2,26 @@ package com.xentaurs.assm.repository;
 
 
 import com.xentaurs.assm.domain.User;
+import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
+import java.util.Optional;
 
+@Repository
+/*public interface UserRepository extends JpaRepository<User, Long> {
+
+    User findByUsername(String username);
+
+}*/
 public interface UserRepository extends CrudRepository<User, Long> {
 
-    List<User> findByLastName(@Param("lastname") String lastname);
+    /*User findByUsername(String username);*/
+    /*List<User> findByUsername(@Param("username") String usernamename);*/
+    User findByUsername(@Param("username") String usernamename);
 
-    List<User> findByFirstName(@Param("firstname") String firstname);
+    User findByEmail(@Param("email") String email);
 
 }

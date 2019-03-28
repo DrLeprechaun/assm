@@ -29,7 +29,7 @@ public class BackendController {
         return HELLO_TEXT;
     }
 
-    @RequestMapping(path = "/user", method = RequestMethod.POST)
+    /*@RequestMapping(path = "/user", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public @ResponseBody long addNewUser (@RequestParam String firstName, @RequestParam String lastName) {
         User user = new User(firstName, lastName);
@@ -40,11 +40,11 @@ public class BackendController {
         return user.getId();
     }
 
-    @GetMapping(path="/user/{id}")
+    /*@GetMapping(path="/user/{id}")
     public @ResponseBody User getUserById(@PathVariable("id") long id) {
         LOG.info("Reading user with id " + id + " from database.");
         return userRepository.findById(id).get();
-    }
+    }*/
 
     //@CrossOrigin(origins = "http://localhost:8080")
     @CrossOrigin(origins = "*")
