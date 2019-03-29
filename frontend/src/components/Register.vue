@@ -134,6 +134,7 @@ export default {
         },
         showAlert() {
             this.dismissCountDown = this.dismissSecs
+            console.log("alert");
         },
         successAlert() {
             this.username = '';
