@@ -20,6 +20,8 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     /*User findByUsername(String username);*/
     /*List<User> findByUsername(@Param("username") String usernamename);*/
+    User findById(@Param("id") long id);
+
     User findByUsername(@Param("username") String usernamename);
 
     User findByEmail(@Param("email") String email);
